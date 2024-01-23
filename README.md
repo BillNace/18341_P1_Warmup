@@ -194,10 +194,13 @@ When you have finished this project you should:
 1. Create a branch of the commit you want to submit, naming it as your final commit.
    Commit it and push it to GitHub.  Sure, and tag it as well.
   ```sh
-  $ git branch final
-  $ git commit -m "My final submission.  Yay, I'm done!"
-  $ git tag -a final -m "Final submission for 18341 P1"
-  $ git push --tags
+$ git branch gradescope_final
+$ git checkout gradescope_final
+$ git add --all
+$ git commit -m "My final submission.  Yay, I'm done!"
+$ git push -u origin gradescope_final
+$ git tag -a final -m "Final submission for 18341 P1"
+$ git push --tags  
   ```
 
 2. Log onto Gradescope and select the P1: Warmup assignment.
@@ -218,7 +221,7 @@ When you have finished this project you should:
 
 ![Choose a repo](./Images/GS3_ChoseRepo.png)
 
-5. Select the "final" branch that you want to submit.
+5. Select the "gradescope_final" branch that you want to submit.
 
 6. Press submit!
 
