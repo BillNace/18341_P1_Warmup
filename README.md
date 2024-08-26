@@ -16,9 +16,9 @@ your Altera DE0-CV board.
 
 Project value | 20 points
 --- | ---
-Project start | 17 Jan 2024
-Project due | 23 Jan 2024 at 3:30pm
-Drop dead date | 24 Jan 2024 at 3:30pm
+Project start | 26 Aug 2024
+Project due | 28 Aug 2024 at 3:30pm
+Drop dead date | 29 Aug 2024 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
@@ -39,6 +39,8 @@ Thus, discussions and hints about the assignment are encouraged.  However, the
 project must be coded and written up individually (you may not show, nor view,
 any source code from other students).  We may use automated tools to detect
 copying.
+
+Don't forget the course policies about use of Generative AI.
 
 Use Piazza to ask questions or come visit us during office hours (or email for
 an appointment at another time).  We want to see you succeed, but you have to
@@ -180,7 +182,7 @@ FPGA device type.
 ## How To Turn In Your Solution
 
 This semester we will be using
-[Github Classroom](https://classroom.github.com/classrooms/31452665-18-341-spring24)
+[Github Classroom](https://classroom.github.com/classrooms/31452665-18-341-fall24)
 to hand-out as well as hand-in project code.  We will post invitation links on Piazza whenever a project is posted.  I suppose you already know that, else you wouldn't have
 gotten this file from the repo.
 
@@ -227,7 +229,6 @@ $ git push --tags
 
 ![Submit](./Images/GS4_Submit.png)
 
-**You aren't finished yet!** You will now submit the commit to Gradescope.
 ## Demos and Late Penalty
 
 We will have demo times outside of class times on or near the due date.  Since
