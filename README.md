@@ -229,6 +229,10 @@ $ git push --tags
 
 ![Submit](./Images/GS4_Submit.png)
 
+7. Before your checkoff demonstration, you must clone the repo onto the AFS
+   machine where you intend to demo.  Do not count on SFTP to sync for you.  
+   Instead, you must actually use git to clone.
+
 ## Demos and Late Penalty
 
 We will have demo times outside of class times on or near the due date.  Since
