@@ -1,6 +1,6 @@
 # Warmup
 
-18-341: Fall Semester of 2024
+18-341: Spring Semester of 2025
 
 ## Objective and Overview
 
@@ -16,9 +16,9 @@ your Altera DE0-CV board.
 
 Project value | 20 points
 --- | ---
-Project start | 26 Aug 2024
-Project due | 4 Sep 2024 at 3:30pm
-Drop dead date | 5 Sep 2024 at 3:30pm
+Project start | 13 January 2025
+Project due | 22 January 2025 at 3:30pm
+Drop dead date | 23 January 2025 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
@@ -67,7 +67,7 @@ is available at: http://www.terasic.com.tw/wiki/Altera_USB_Blaster_Driver_Instal
 
 ## Assignment Overview
 
-Go to the ECE Receiving Window (HH 1301) between 10-12 or 2-4pm
+Go to the ECE Receiving Window (HH 1301) between 9-5 M-F
 to pick up your Altera DE0-CV kit.  BTW, you’ll be
 returning it to the same place at the end of the semester in exchange
 for a grade.
