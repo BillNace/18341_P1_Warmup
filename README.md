@@ -16,9 +16,9 @@ your Altera DE0-CV board.
 
 Project value | 20 points
 --- | ---
-Project start | 13 January 2025
-Project due | 22 January 2025 at 3:30pm
-Drop dead date | 23 January 2025 at 3:30pm
+Project start | 14 January 2025
+Project due | 23 January 2025 at 3:30pm
+Drop dead date | 24 January 2025 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
