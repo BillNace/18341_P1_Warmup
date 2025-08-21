@@ -1,6 +1,6 @@
 # Warmup
 
-18-341: Spring Semester of 2025
+18-341: Fall Semester of 2025
 
 ## Objective and Overview
 
@@ -10,15 +10,15 @@ environment set up as anything else.  As such, this project is significantly
 simpler than any other course project; and, therefore, worth far fewer points.
 
 This is an **individual** project, to be done in simulation with VCS and on
-your Altera DE0-CV board.
+your Boolean Board.
 
 ## Schedule and Scoring
 
 Project value | 20 points
 --- | ---
-Project start | 14 January 2025
-Project due | 23 January 2025 at 3:30pm
-Drop dead date | 24 January 2025 at 3:30pm
+Project start | 25 August 2025
+Project due | 27 August 2025 at 3:30pm
+Drop dead date | 28 August 2025 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
@@ -49,43 +49,42 @@ ask for help.
 ## Background
 
 Over the semester we’ll do several assignments (homeworks and/or
-projects) that are to be implemented and demonstrated on the Altera DE0-CV
-boards we’re giving you for the semester.  The kit you’ll receive
-contains the board, power supply, and some cables.
-The basic idea here is to install the development software on
+projects) that are to be implemented and demonstrated on the Boolean
+Boards we’re giving you for the semester.  
+The basic idea here is to (maybe) install the development software on
 your computer, run it to develop the system described here, and turn
 your code in, all before the due date. 
 
 The software is available for Windows and Linux.  Download it at 
-http://fpgasoftware.intel.com.  Get the Quartus Prime Lite version. 
+https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html.  
 If you have a Mac (lucky you), you will have to
 use a virtual machine (Parallels, VMware, etc).  You can, of course,
 just use the computers in the HH-1305 cluster (the “240 lab”) as well. 
-(Just don’t try to use them during 240 lab times!)  Windows people will
-probably need to do something with the USB Blaster windows driver, which
-is available at: http://www.terasic.com.tw/wiki/Altera_USB_Blaster_Driver_Installation_Instructions.
+(Just don’t try to use them during 240 lab times!)  
 
 ## Assignment Overview
 
-Go to the ECE Receiving Window (HH 1301) between 9-5 M-F
-to pick up your Altera DE0-CV kit.  BTW, you’ll be
+Go to the ECE Receiving Window (HH 1301) between 9-4 M-F
+to pick up your Boolean Board kit.  BTW, you’ll be
 returning it to the same place at the end of the semester in exchange
 for a grade.
 
 Use the invitation link provided on Piazza to access and clone your
-GitHub repo.  The repo contains **sumitup.sv,** your starter code.  Also in
-the same repo are **tatb.qxp,** a hardware testbench, and **tatb.svp** an
-encrypted simulation testbench.  **DE0\_CV\_Default.qsf** is a pin definition
+GitHub repo.  The repo contains **sumitup.sv,**, **tatb.sv** and 
+**Boolean341.xdc**.  **Boolean341.xdc** is a pin definition
 file for your board.  Write a **p1.sv** file to combine these files,
 together with possibly some other SV code and demonstrate the system
 running on your board.  Hmm, more information needed.
 
 The basic idea of the **sumitup** thread is to add up a series of numbers
-provided at its input.  It is not complex at all.  As described in the
-book, the **go_l** signal indicates when the first value is on the input. 
-At each **clock** edge another value appears on the input.  However, when
+provided at its input.  It is not complex at all.  This thread is fully
+described in the textbook.  You will get sick of it, as we also will use it
+as an example throughout the class.  It has a very simple protocol.
+When the **go_l** signal is asserted, that indicates the first value is on the input. 
+At each **clock** edge another value appears on the **inA** input.  However, when
 there’s a zero on the **inA** input, that’s the last value and **done** should
-immediately be asserted.  The **sumitup** thread is completely and correctly
+immediately be asserted.  At that point, the **sum** output must be the sum of
+all the values.  The **sumitup** thread is completely and correctly
 specified in the **sumitup.sv** file you downloaded.  You will not need to
 make any changes to the **sumitup** thread.  Obviously, there must be more
 to this project, then.
@@ -98,15 +97,22 @@ displayed on the lower two hex displays.
 
 The hardware testbench, which we provide, will generate a set of random
 values and send them to your **sumitup** thread (assuming you’ve wired
-everything together correctly).  When it’s done, it displays what it
-thinks is the 8-bit sum of the series of values in **HEX3** and **HEX2** (the
-leftmost digits). Your sum should be displayed in **HEX1** and **HEX0.**  The
+everything together correctly).  When it’s done, it outputs what it
+thinks is the 8-bit sum of the series of values, which you should
+wire to the  **HEX5** and **HEX4** seven segment displays (on the
+leftmost set of digits). Your sum should be displayed in **HEX1** and **HEX0.**  
+Ensure the decimal points and the **HEX7/6** and **HEX3/2** digits are blank.
+
+The
 idea is that if you’ve interfaced and wired everything together
-correctly, then the same two 2-digit hex numbers are shown in the
-topmost (left) and bottommost (right) hex displays.  Also, in that case,
-the testbench will provide a signal (that you'll hook to **LEDR0**) such
+correctly, then whenever you press **BTN[0]**, a bunch of values are generated
+and sent into the **sumitup** thread.  Hopefully, the same two 2-digit hex numbers
+ are shown in the
+left and right hex displays.  Also, in that case,
+the testbench will provide a signal (that you'll hook to **LD[0]**) such
 that the LED will light up when the values match.  You’ll need some
-combinational logic to drive the displays.  
+combinational logic to drive the displays (which you are free to re-use from
+18-240).  
 
 The testbench header looks like this:
 
@@ -128,28 +134,28 @@ Just to make sure you've thought this through, let me ask a few questions.
 * Your thread's output value will be connected to **outResult**, as noted in
 the comments above.  Should it be connected to anything else?  
 
-* Does the testbench handle the **LEDR0** connection, or do you have to do that?  
+* Does the testbench handle the **LD[0]** connection, or do you have to do that?  
 
 If you are unsure about any of these answers, come talk to us before you start hacking away.
 
 ## Testbench Operations
 
 We use two of the buttons on the board to control the testbench's
-operation.  **BUTTON2** is a reset and will put zeros in the display,
-turn **LEDR0** off, and reset the FSM.  **BUTTON0** is used to start the
+operation.  **BTN[2]** is a reset and will put zeros in the display,
+turn **LD[0]** off, and reset the FSM.  **BTN[0]** is used to start the
 operation. Reset the board and it should show all zeros in the display. 
-When you press and hold **BUTTON0**, the hardware testbench will send a
-series of numbers to your **sumitup** thread at the blazing speed of 50
+When you press and hold **BTN[0]**, the hardware testbench will send a
+series of numbers to your **sumitup** thread at the blazing speed of 100
 MHz.  You’ll see the sum of what the testbench sent in the upper hex
 displays, and the result of what your code calculated in the lower hex
 displays (this is the value captured by the downstream thread).  If the
-two values are equal, **LEDR0** should light. When you let go of **BUTTON0,**
+two values are equal, **LD[0]** should light. When you let go of **BTN[0],**
 the hardware testbench will zero its hex displays and your code will
 keep displaying the calculated sum in the lower digits.  It will wait
-for the next depressing of **BUTTON0** (which will not be depressing because
-you’ll then get a whole new sum displayed). When you depress **BUTTON0**
+for the next depressing of **BTN[0]** (which will not be depressing because
+you’ll then get a whole new sum displayed). When you depress **BTN[0]**
 again, a new series of numbers will be sent and displayed. Pushing
-**BUTTON2** will reset so that all the displays are zero. Note that the
+**BTN[2]** will reset so that all the displays are zero. Note that the
 buttons are active low (they present a logic 0 when pressed).
 
 Why is it called a hardware testbench? Because the testbench is
@@ -162,27 +168,27 @@ right?  See the difference?
 There are several details about the devices on your board that I've
 given here (buttons are active low, LEDs active high, etc).  Where did I
 figure them out?  If you ever want to know about the components on the
-DE0-CV board itself, check out the DE0-CV User Manual.  You can find it in PDF
-form on the DVD that came in the box (I have also posted a copy on
-Canvas).  The manual is a fairly readable document that talks about all
-of the components that go into making an FPGA board like the DE0-CV.  I
+Boolean board itself, check out the User Manual.  You can find it in on 
+the website of the board manufacturer at https://www.realdigital.org/doc/02013cd17602c8af749f00561f88ae21
+.  The manual is a fairly readable document that talks about all
+of the components that go into making an FPGA board like the Boolean Board.  I
 probably wouldn't read it straight through, but I certainly go to it
 often when putting together a project and trying to get the components
 to work correctly.  Please take a few minutes to page through it,
 particularly the sections dealing with the components for this project: 
 
-* 3.2 Using the LEDs and Switches
+* GPIO
 
-* 3.3 Using the 7-segment Displays
+* Seven Segment Display
 
 Also, the User Manual is one place to go to figure out what to type into
-the third page of the Quartus “New Project” wizard when it asks for an
+the third page of the Xilinx “New Project” wizard when it asks for an
 FPGA device type.
 
 ## How To Turn In Your Solution
 
 This semester we will be using
-[Github Classroom](https://classroom.github.com/classrooms/31452665-18-341-fall24)
+[Github Classroom](https://classroom.github.com/classrooms/31452665-18-341-fall25)
 to hand-out as well as hand-in project code.  We will post invitation links on Piazza whenever a project is posted.  I suppose you already know that, else you wouldn't have
 gotten this file from the repo.
 
