@@ -17,8 +17,8 @@ your Boolean Board.
 Project value | 20 points
 --- | ---
 Project start | 25 August 2025
-Project due | 27 August 2025 at 3:30pm
-Drop dead date | 28 August 2025 at 3:30pm
+Project due | 3 September 2025 at 3:30pm
+Drop dead date | 4 September 2025 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
