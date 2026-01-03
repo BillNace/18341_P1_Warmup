@@ -1,6 +1,6 @@
 # Warmup
 
-18-341: Fall Semester of 2025
+18-341: Spring Semester of 2026
 
 ## Objective and Overview
 
@@ -16,9 +16,9 @@ your Boolean Board.
 
 Project value | 20 points
 --- | ---
-Project start | 25 August 2025
-Project due | 3 September 2025 at 3:30pm
-Drop dead date | 4 September 2025 at 3:30pm
+Project start | 13 January 2026
+Project due | 20 January 2026 at 3:30pm
+Drop dead date | 21 January 2026 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
@@ -144,19 +144,18 @@ We use two of the buttons on the board to control the testbench's
 operation.  **BTN[2]** is a reset and will put zeros in the display,
 turn **LD[0]** off, and reset the FSM.  **BTN[0]** is used to start the
 operation. Reset the board and it should show all zeros in the display. 
-When you press and hold **BTN[0]**, the hardware testbench will send a
+When you let go of **BTN[0]**, the hardware testbench will send a
 series of numbers to your **sumitup** thread at the blazing speed of 100
 MHz.  You’ll see the sum of what the testbench sent in the upper hex
 displays, and the result of what your code calculated in the lower hex
 displays (this is the value captured by the downstream thread).  If the
-two values are equal, **LD[0]** should light. When you let go of **BTN[0],**
+two values are equal, **LD[0]** should light. When you press and hold **BTN[0],**
 the hardware testbench will zero its hex displays and your code will
 keep displaying the calculated sum in the lower digits.  It will wait
 for the next depressing of **BTN[0]** (which will not be depressing because
-you’ll then get a whole new sum displayed). When you depress **BTN[0]**
+you’ll then get a whole new sum displayed). When you cycle **BTN[0]**
 again, a new series of numbers will be sent and displayed. Pushing
-**BTN[2]** will reset so that all the displays are zero. Note that the
-buttons are active low (they present a logic 0 when pressed).
+**BTN[2]** will reset so that all the displays are zero.
 
 Why is it called a hardware testbench? Because the testbench is
 synthesized into hardware to do the operations mentioned above.  Most of
@@ -251,3 +250,37 @@ following day.
 hours late.  If you do not intend to use a grace day (or have already used
 yours), make sure you have something in the repo (and have pushed the repo) at
 the deadline to avoid getting a zero on this project.
+
+## 341 Linter
+
+Your repo will include a "Linter" that will show up on git commits as "Slang/Tidy."  That is a tool to inspect your code and provide
+suggestions based on style and common syntax issues.  It is more than the syntax
+checker that VCS employs to check your code. Rather, it can find legal syntax 
+constructs and give you feedback if it thinks there might be the potential for a
+problem.  We have configured the linter to check for style guideline violations as
+well.
+
+We will not be using the linter as an additional way to grade your work.  Rather,
+we have included it here for your own use.  It will provide you some valuable
+feedback, but you are free to ignore it or not use it.
+
+The linter will run every time you push your code to your repo.  If you look on 
+GitHub after it has completed running, you will see a tick or red cross next to your
+commit.  Clicking on it will show the details of the run results.
+
+![Linter failure](./images/Linter1.png "Linter failure")
+
+Clicking on the details tab will provide a longer list of results.
+
+![Linter results](./images/Linter2.png "Linter results")
+
+You can also click on the "Summary" tab on the left to get a short summary of any
+tests you may have failed.  You will also be able to download an artifact, which 
+will give you details on the specific line numbers and test cases you failed.
+
+![Results summary](./images/Linter3.png "Linter results summary")
+
+Again, let me stress that this feedback is entirely for your benefit.  We will not
+be grading with the linter.  Rather, it should help you find style issues, but also
+problems with bit addressing, incomplete connections, etc.
+
