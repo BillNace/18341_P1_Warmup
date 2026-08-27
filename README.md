@@ -165,7 +165,7 @@ right?  See the difference?
 ## Some Other Things you Should Learn
 
 There are several details about the devices on your board that I've
-given here (buttons are active low, LEDs active high, etc).  Where did I
+given here (buttons are active high, LEDs active high, etc).  Where did I
 figure them out?  If you ever want to know about the components on the
 Boolean board itself, check out the User Manual.  You can find it in on 
 the website of the board manufacturer at https://www.realdigital.org/doc/02013cd17602c8af749f00561f88ae21
