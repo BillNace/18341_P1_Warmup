@@ -18,7 +18,7 @@ Project value | 20 points
 --- | ---
 Project start | 24 August 2026
 Project due | 31 August  2026 at 3:30pm
-Drop dead date | 1 November 2026 at 3:30pm
+Drop dead date | 1 September 2026 at 3:30pm
 
 If you have not uploaded anything by the drop dead date, we will assume you
 are no longer in the course. Why? Because the syllabus says you must *attempt
